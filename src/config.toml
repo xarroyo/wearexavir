@@ -1,4 +1,4 @@
-baseurl = "http://example.org/"
+baseurl = "https://wearexavir.netlify.app/"
 title = "Hugo Website"
 theme = "theme_wearexavir"
 languageCode = "en-us"
