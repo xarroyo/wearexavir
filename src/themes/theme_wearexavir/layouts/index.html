@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+	<head>
+		<script>
+			// Set the date we're counting down to
+			var countDownDate = new Date("Aug 25, 2023 17:00:00").getTime();
+			const getCoutdownValue = (dateTo) => {
+				const now = new Date().getTime();
+				const distance = dateTo - now;
+				// Time calculations for days, hours, minutes and seconds
+				const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			  	return days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+			}
+			// Initial value
+			document.getElementById("countdown").innerHTML = getCoutdownValue(countDownDate);
+		</script>
+
+		<title> {{ .Site.Title }} </title>
+
+		{{ partial "head.html" . }}
+
+	</head>
+	<body>
+		<!-- {{ partial "header.html" . }} -->
+		<div class="flex-wrapper">
+			<main class="container">
+				<div class="row">
+					{{ with .Site.Params.ProfilePicture }}
+					<div class="col-6 text-center">
+						<img alt="profile-picture" class="img-fluid" src="{{ . }}">
+					</div>
+					{{ end }}
+					<div class="col-6 text-left">
+						<div class="col-xs-12 user-profile text-center">
+							<h1 id="user-name">{{ .Site.Params.Name }}</h1>
+						</div>
+						<div class="col-xs-12 user-social text-center">
+						{{ partial "social.html" . }}
+						</div>
+						<div id="countdown"><script>getCoutdownValue(countDownDate);</script></div>
+					</div>
+				</div>
+				<div class="row">
+
+				</div>
+				<div class="row">
+				</div>
+				{{ with .Site.Params.About }}
+				<div class="row">
+					<div class="col-lg-4 offset-lg-4 text-center">
+					</div>
+				</div>
+				{{ end }}
+				{{ if .Site.Params.blogOnIndex }}
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<h1>Blog</h1>
+					</div>
+				</div>
+				{{ partial "postlist.html" . }}
+				{{ end }}
+			</main>
+			{{ partial "footer.html" . }}
+		</div>
+		<script>
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+			  document.getElementById("countdown").innerHTML = getCoutdownValue(countDownDate);
+			  // If the count down is finished, write some text
+			  if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("countdown").innerHTML = "Party time!!";
+			  }
+			}, 1000);
+		</script>
+	</body>
+</html>
