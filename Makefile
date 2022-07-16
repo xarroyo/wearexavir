@@ -1,6 +1,15 @@
 COMMAND=docker-compose
 export COMPOSE_DOCKER_CLI_BUILD=1
 
+
+PHONY += build
+build:
+	docker run --rm -it -v $(shell pwd)/src:/src klakegg/hugo:0.101.0-alpine
+
+PHONY += shell
+shell:
+	docker run --rm -it -v $(shell pwd)/src:/src klakegg/hugo:0.101.0-alpine shell
+
 PHONY += up
 up:
 	$(COMMAND) up --remove-orphans
@@ -8,10 +17,6 @@ up:
 PHONY += down
 down:
 	$(COMMAND) down
-
-PHONY += shell
-shell:
-	$(COMMAND) exec $(APP_NAME) bash
 
 PHONY += chown-src
 chown-src:

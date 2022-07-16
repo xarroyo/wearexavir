@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<script>
+			
+			var countDownDate = new Date("Aug 25, 2023 17:00:00").getTime();
+			const getCoutdownValue = (dateTo) => {
+				const now = new Date().getTime();
+				const distance = dateTo - now;
+				
+				const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			  	return days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+			}
+			
+			document.getElementById("countdown").innerHTML = getCoutdownValue(countDownDate);
+		</script>
+
+		<title> Hugo Website </title>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" crossorigin="anonymous"/>
+<script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="http://example.org/css/wearexavir.css">
+
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+
+	</head>
+	<body>
+		
+		<div class="flex-wrapper">
+			<main class="container">
+				<div class="row">
+					
+					<div class="col-6 text-center">
+						<img alt="profile-picture" class="img-fluid" src="/logo.png">
+					</div>
+					
+					<div class="col-6 text-left">
+						<div class="col-xs-12 user-profile text-center">
+							<h1 id="user-name">weareXaVir</h1>
+						</div>
+						<div class="col-xs-12 user-social text-center">
+						
+
+
+
+
+<a href="https://twitter.com/weareXaVir" rel="me" title="Twitter"><i class="fab fa-twitter fa-3x" aria-hidden="true"></i></a>
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="https://youtube.com/weareXaVir" rel="me" title="Youtube"><i class="fab fa-youtube fa-3x" aria-hidden="true"></i></a>
+
+
+<a href="https://twitch.tv/weareXaVir" rel="me" title="Twitch"><i class="fab fa-twitch fa-3x" aria-hidden="true"></i></a>
+
+
+<a href="https://open.spotify.com/user/your_spotify" rel="me" title="Spotify"><i class="fab fa-spotify fa-3x" aria-hidden="true"></i></a>
+
+
+
+<a href="https://instagram.com/weareXaVir" rel="me" title="Instagram"><i class="fab fa-instagram fa-3x" aria-hidden="true"></i></a>
+
+
+
+
+<a href="mailto:we.are.xavir@gmail.com" title="Email"><i class="fas fa-envelope fa-3x" aria-hidden="true"></i></a>
+
+
+
+
+
+
+
+
+						</div>
+						<div id="countdown"><script>getCoutdownValue(countDownDate);</script></div>
+					</div>
+				</div>
+				<div class="row">
+
+				</div>
+				<div class="row">
+				</div>
+				
+				<div class="row">
+					<div class="col-lg-4 offset-lg-4 text-center">
+					</div>
+				</div>
+				
+				
+			</main>
+			<footer class="footer text-center">
+<p>Copyright &copy; 2022 weareXaVir
+</span>
+</p>
+</footer>
+
+		</div>
+		<script>
+			
+			var x = setInterval(function() {
+			  document.getElementById("countdown").innerHTML = getCoutdownValue(countDownDate);
+			  
+			  if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("countdown").innerHTML = "Party time!!";
+			  }
+			}, 1000);
+		</script>
+	</body>
+</html>
