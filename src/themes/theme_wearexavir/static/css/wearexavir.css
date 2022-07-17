@@ -77,6 +77,11 @@ img {
 .staytuned .logo {
 	max-width: 80%;
 }
+.yellow-divider {
+	width: 50%;
+	border-top: 1px solid #ffcf00;
+	margin: 20px 0;
+}
 
 .meanwhile {
 	background-color: white;
@@ -153,6 +158,8 @@ img {
 }
 
 @media (max-width: 577px) {
+	h1 { font-size: 4.5rem; }
+	p { font-size: 1.7rem;}
 	.hero__left { max-width: 45%; }
 	.hero__right { max-width: 90%; }
 
@@ -164,8 +171,11 @@ img {
 		background-size: cover;
 		background-color: #020a0a;
 	}
-	h1 { font-size: 4.5rem; }
-	#countdown { font-size: 2.5rem; }
+	.yellow-divider { margin: 12px 0; }
+	#countdown {
+		font-size: 2.5rem;
+		padding: 1rem;
+	}
 	#countdown > #countdown__days,
 	#countdown > #countdown__hours,
 	#countdown > #countdown__minutes,
