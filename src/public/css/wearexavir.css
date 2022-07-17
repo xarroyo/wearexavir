@@ -50,6 +50,7 @@ img {
     max-width: 42%;
  }
 
+.hero__left { margin-bottom: 40px; }
 .hero__right {
 	display: flex;
 	flex-direction: column;
@@ -67,14 +68,14 @@ img {
     ), url("/bg_hero_desktop.png");
 
 	/* Center and scale the image nicely */
-	background-position: center;
+	background-position: center bottom;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-color: #020a0a;
 }
 
 .staytuned .logo {
-	width: 80%;
+	max-width: 80%;
 }
 
 .meanwhile {
@@ -101,29 +102,24 @@ img {
 
 
 @media (max-width: 1200px) {
+	.hero__left { max-width: 50%; }
+	.hero__right { max-width: 60%; }
+}
+
+@media (max-width: 992px) {
 	.flex-wrapper {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		/* justify-content: flex-start; */
 	}
 
-	.hero {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
+	/* .hero {
 		flex-direction: column;
-	}
+	} */
 
-	.hero__left { margin-bottom: 40px; }
+	.hero__left  { max-width: 42%; }
 	.hero__right { max-width: 60%; }
-	.hero__right {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
+	.staytuned .logo { max-width: 90%; }
 	.staytuned {
 		min-height: 100vh;
 		padding: 5rem 0;
@@ -133,23 +129,27 @@ img {
 		), url("/bg_hero_desktop.png");
 
 		/* Center and scale the image nicely */
-		background-position: center;
+		background-position: center bottom;
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-color: #020a0a;
 	}
-}
-
-
-@media (max-width: 992px) {
-	.flex-wrapper { justify-content: flex-start; }
-	.hero__left { max-width: 50%; }
-	.hero__right { max-width: 60%; }
+	h1 { font-size: 5rem; }
+	#countdown { font-size: 2.5rem; }
+	#countdown > #countdown__days,
+	#countdown > #countdown__hours,
+	#countdown > #countdown__minutes,
+	#countdown > #countdown__seconds {
+		font-size: 4rem;
+	}
 }
 
 @media (max-width: 769px) {
+	.flex-wrapper { justify-content: flex-start; }
+	.hero { flex-direction: column; }
 	.hero__left { max-width: 60%; }
 	.hero__right { max-width: 80%; }
+
 }
 
 @media (max-width: 577px) {
@@ -159,7 +159,7 @@ img {
 	.staytuned {
 		background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),
 			url("/bg_hero_mobile.png");
-		background-position: center;
+		background-position: center bottom;
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-color: #020a0a;
