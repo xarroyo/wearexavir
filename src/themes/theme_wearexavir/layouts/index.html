@@ -4,6 +4,16 @@
 		<script>
 			// Set the date we're counting down to
 			var countDownDate = new Date("Aug 25, 2023 17:00:00").getTime();
+			const getDistance = () => {
+				const dateTo = new Date("Aug 25, 2023 17:00:00").getTime();
+				const now = new Date().getTime();
+				return dateTo - now;
+			}
+			const getDays    = () => Math.floor(getDistance() / (1000 * 60 * 60 * 24));
+			const getHours   = () => Math.floor((getDistance() % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const getMinutes = () => Math.floor((getDistance() % (1000 * 60 * 60)) / (1000 * 60));
+			const getSeconds = () => Math.floor((getDistance() % (1000 * 60)) / 1000);
+
 			const getCoutdownValue = (dateTo) => {
 				const now = new Date().getTime();
 				const distance = dateTo - now;
@@ -12,10 +22,8 @@
 				const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 				const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 				const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-			  	return days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+			  	return days + " DIAS " + hours + "H " + minutes + "M " + seconds + "S ";
 			}
-			// Initial value
-			document.getElementById("countdown").innerHTML = getCoutdownValue(countDownDate);
 		</script>
 
 		<title> {{ .Site.Title }} </title>
@@ -25,55 +33,83 @@
 	</head>
 	<body>
 		<!-- {{ partial "header.html" . }} -->
-		<div class="flex-wrapper">
-			<main class="container">
-				<div class="row">
-					{{ with .Site.Params.ProfilePicture }}
-					<div class="col-6 text-center">
-						<img alt="profile-picture" class="img-fluid" src="{{ . }}">
-					</div>
-					{{ end }}
-					<div class="col-6 text-left">
-						<div class="col-xs-12 user-profile text-center">
-							<h1 id="user-name">{{ .Site.Params.Name }}</h1>
-						</div>
-						<div class="col-xs-12 user-social text-center">
-						{{ partial "social.html" . }}
-						</div>
-						<div id="countdown"><script>getCoutdownValue(countDownDate);</script></div>
-					</div>
-				</div>
-				<div class="row">
+		<main>
+			<section class="staytuned flex-wrapper">
+				<article class="container">
+					<section class="hero">
+						<section class="hero__left">
+							{{ with .Site.Params.ProfilePicture }}
+							<div class="text-center">
+								<img alt="profile-picture" class="logo" src="{{ . }}">
+							</div>
+							{{ end }}
+						</section>
+						<section class="hero__right">
+							<h1 class="text-center" style="line-height: 1;">Uniros a nosotros </h1>
+							<h2 class="text-center" >y juntos dominaremos la galaxia...</h2>
+							<hr style="width: 50%; border-top: 1px solid #ffcf00;margin: 20px 0;" />
+							<p class="text-center">Preparaos para saltar al hiper espacio en:</p>
+							<div class="staytuned__content text-center">
+							</div>
+							<span id="countdown">
+								<span id="countdown__days"></span>&nbsp;DIAS&nbsp;&nbsp;
+								<span id="countdown__hours"></span>H&nbsp;&nbsp;
+								<span id="countdown__minutes"></span>M&nbsp;&nbsp;
+								<span id="countdown__seconds"></span>S
+							</span>
+						</section>
+					</section>
+				</article>
+			</section>
+			<section class="meanwhile flex-wrapper">
+				<article class="container">
+					<h2>Que hacer mientras esperas?</h2>
+					<p>Sabemos que aún quedan tiempo para el gran dia, pero el tiempo vuela! Aquí os dejamos algunas ideas para que podais estar preparados.</p>
+					<ul>
+						<li>Empieza a mirar vestidos.</li>
+						<li>Come bien! Aqui os dejamos una lista de restaurantes para que podais practicar:</li>
+							<ul>
+								<li>StreetXo</li>
+								<li>Disfrutar **</li>
+								<li>La biblioteca *</li>
+								<li>Taco bell</li>
+								<li>Foster's hollywood</li>
+							</ul>
+						<li>Abrir un grupo de whatsapp para orgarnizar las despedidas! Tips:</li>
+						<ul>
+							<li>Buscar una fecha con tiempo</li>
+							<li>No silenciar el grupo</li>
+							<li>Organizar una despedida no está pagado. Por favor, colabora con los organizadores con las preguntas que puedan tener.</li>
+						</ul>
+					</ul>
+				</article>
+			</section>
 
+			<!-- <h1 id="user-name">{{ .Site.Params.Name }}</h1> -->
+			{{ if .Site.Params.blogOnIndex }}
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<h1>Blog</h1>
 				</div>
-				<div class="row">
-				</div>
-				{{ with .Site.Params.About }}
-				<div class="row">
-					<div class="col-lg-4 offset-lg-4 text-center">
-					</div>
-				</div>
-				{{ end }}
-				{{ if .Site.Params.blogOnIndex }}
-				<div class="row">
-					<div class="col-xs-12 text-center">
-						<h1>Blog</h1>
-					</div>
-				</div>
-				{{ partial "postlist.html" . }}
-				{{ end }}
-			</main>
-			{{ partial "footer.html" . }}
-		</div>
+			</div>
+			{{ partial "postlist.html" . }}
+			{{ end }}
+		</main>
+		{{ partial "social.html" . }}
+		{{ partial "footer.html" . }}
 		<script>
 			// Update the count down every 1 second
 			var x = setInterval(function() {
-			  document.getElementById("countdown").innerHTML = getCoutdownValue(countDownDate);
-			  // If the count down is finished, write some text
-			  if (distance < 0) {
-				clearInterval(x);
-				document.getElementById("countdown").innerHTML = "Party time!!";
-			  }
+				const countdownValue = getCoutdownValue(countDownDate);
+				document.getElementById("countdown__days").innerHTML = getDays();
+				document.getElementById("countdown__hours").innerHTML = getHours();
+				document.getElementById("countdown__minutes").innerHTML = getMinutes();
+				document.getElementById("countdown__seconds").innerHTML = getSeconds();
+				// If the count down is finished, write some text
+				if (countdownValue < 0) {
+					clearInterval(x);
+					document.getElementById("countdown").innerHTML = "Party time!!";
+				}
 			}, 1000);
 		</script>
 	</body>

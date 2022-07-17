@@ -1,6 +1,10 @@
 * {
 	margin: 0;
-	border: 1px solid red;
+	/* border: 1px solid red; */
+}
+@font-face {
+	font-family: 'AvenirNext';
+	src: url('AvenirLTS-Book.ttf') format('truetype'),
 }
 
 html {
@@ -8,12 +12,20 @@ html {
 }
 
 body {
-	background-color: black;
+	background-color: #020a0a;
 	height: 100%;
-	/* font-family: 'Open Sans', sans-serif; */
-	font-family: 'Edu NSW ACT Foundation', cursive;
-	color: #b98f00;
+	color: white;
+	font-family: 'AvenirNext', sans-serif;
 }
+
+h1,h2,h3,h4,h5,h6 {
+	padding: 0;
+	margin: 0;
+	font-family: 'Bebas Neue', cursive;
+}
+p { font-size: 2rem;}
+
+h1 { font-size: 5rem; }
 
 img {
  	max-width: 100%;
@@ -21,31 +33,154 @@ img {
 
 .flex-wrapper {
 	display: flex;
-  	min-height: 100vh;
   	flex-direction: column;
-	justify-content: space-between;
-	padding-top: 70px;
+	justify-content: center;
 }
 
-#green-terminal {
-	color: #00ff00;
+.hero {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+
+.hero__left,
+.hero__right {
+    max-width: 42%;
+ }
+
+.hero__right {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.staytuned {
+	min-height: 100vh;
+	padding: 5rem 0;
+	background: linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ), url("/bg_hero_desktop.png");
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #020a0a;
+}
+
+.staytuned .logo {
+	width: 80%;
+}
+
+.meanwhile {
+	background-color: white;
+	color: black;
+	padding: 5rem 4rem;
 }
 
 #countdown {
-	font-size: 5rem;
-	color: #b98f00;
+	border: 1px dashed #ffcf00;
+	font-size: 4rem;
 	width: 100%;
 	text-align: center;
+	font-family: 'Bebas Neue', cursive;
+	padding: 2rem 1rem;
+	margin: 20px 0;
+}
+#countdown > #countdown__days,
+#countdown > #countdown__hours,
+#countdown > #countdown__minutes,
+#countdown > #countdown__seconds {
+	font-size: 6rem;
 }
 
-.font-header {
-	font-family: 'Edu NSW ACT Foundation', cursive;
-	font-family: 'Nanum Pen Script', cursive;
+
+@media (max-width: 1200px) {
+	.flex-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.hero {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		flex-direction: column;
+	}
+
+	.hero__left { margin-bottom: 40px; }
+	.hero__right { max-width: 60%; }
+	.hero__right {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.staytuned {
+		min-height: 100vh;
+		padding: 5rem 0;
+		background: linear-gradient(
+		rgba(0, 0, 0, 0.3),
+		rgba(0, 0, 0, 0.3)
+		), url("/bg_hero_desktop.png");
+
+		/* Center and scale the image nicely */
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-color: #020a0a;
+	}
 }
 
-.font-paragraph {
-	font-family: 'Open Sans', sans-serif;
+
+@media (max-width: 992px) {
+	.flex-wrapper { justify-content: flex-start; }
+	.hero__left { max-width: 50%; }
+	.hero__right { max-width: 60%; }
 }
+
+@media (max-width: 769px) {
+	.hero__left { max-width: 60%; }
+	.hero__right { max-width: 80%; }
+}
+
+@media (max-width: 577px) {
+	.hero__left { max-width: 50%; }
+	.hero__right { max-width: 80%; }
+
+	.staytuned {
+		background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),
+			url("/bg_hero_mobile.png");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-color: #020a0a;
+	}
+	h1 { font-size: 4.5rem; }
+	#countdown { font-size: 2.5rem; }
+	#countdown > #countdown__days,
+	#countdown > #countdown__hours,
+	#countdown > #countdown__minutes,
+	#countdown > #countdown__seconds {
+		font-size: 4rem;
+	}
+}
+
+
+
+
+
+
+
+
 
 nav {
 	font-size: 1.5em;
@@ -57,10 +192,6 @@ nav {
 	font-size: 1.5em;
 }
 
-h1,h2,h3,h4,h5,h6 {
-	font-family: 'Edu NSW ACT Foundation', cursive;
-	font-family: 'Nanum Pen Script', cursive;
-}
 
 #user-name {
 	font-size: 5em;
@@ -90,7 +221,7 @@ h1,h2,h3,h4,h5,h6 {
 
 i {
 	margin: 10px 20px 10px 20px;
-	color: #b98f00;
+	color: white;
 }
 
 .post-link {
