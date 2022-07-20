@@ -41,7 +41,6 @@ img { max-width: 100%; }
 
 
 .hero__left, .hero__right { max-width: 42%; }
-.hero__left { margin-bottom: 40px; }
 .hero__right {
 	display: flex;
 	flex-direction: column;
@@ -75,7 +74,50 @@ img { max-width: 100%; }
 .meanwhile {
 	background-color: white;
 	color: black;
-	padding: 5rem 4rem;
+	padding: 5rem 2rem;
+}
+.meanwhile section {
+	padding: 10px 0;
+}
+.meanwhile p {
+	font-size: 1.6rem;
+}
+i.fa {
+	margin: 5px 5px;
+}
+section > h2.title {
+	font-size: 3rem;
+	padding: 1rem;
+	border: 1px solid #ffcf00;
+	line-height: 1.5;
+	margin-bottom: 10px;
+}
+section > h3.title {
+	font-size: 3rem;
+	padding: 1rem 0;
+	vertical-align: center;
+	line-height: 1.5;
+}
+.eat-good .hero__left  { max-width: 50%; }
+.eat-good .hero__right { max-width: 50%; }
+.eat-good ul {
+	padding: 20px 0;
+	list-style: none;
+}
+
+.celluloid,
+.section__images {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 4rem 0;
+}
+.find-your-outfit img {	width: 60%; }
+.eat-good img {	width: 80%; }
+.be-friki img { width: 50%; }
+
+.justify-column-top {
+	align-self: flex-start;
 }
 
 #countdown {
@@ -128,6 +170,15 @@ img { max-width: 100%; }
 	.hero__left { max-width: 60%; }
 	.hero__right { max-width: 80%; }
 
+
+	.eat-good .hero__left,
+	.eat-good .hero__right { max-width: 100%; }
+	.find-your-outfit img  { width: 80%; }
+	.eat-good img {	width: 80%; }
+	.be-friki .celluloid { flex-direction: column;}
+	.be-friki img { width: 100%; margin: 5px 0;}
+
+
 }
 
 @media (max-width: 577px) {
@@ -155,6 +206,12 @@ img { max-width: 100%; }
 	#countdown > #countdown__seconds {
 		font-size: 4rem;
 	}
+
+	.find-your-outfit img  { width: 100%; }
+	.eat-good img {	width: 100%; }
+	.be-friki .celluloid { flex-direction: column;}
+	.be-friki img { width: 100%; margin: 5px 0;}
+
 }
 
 
