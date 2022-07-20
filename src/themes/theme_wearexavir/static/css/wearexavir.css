@@ -1,16 +1,12 @@
 * {
 	margin: 0;
-	/* border: 1px solid red; */
 }
 @font-face {
 	font-family: 'AvenirNext';
 	src: url('AvenirLTS-Book.ttf') format('truetype'),
 }
 
-html {
-	height: 100%;
-}
-
+html { height: 100%; }
 body {
 	background-color: #020a0a;
 	height: 100%;
@@ -23,13 +19,9 @@ h1,h2,h3,h4,h5,h6 {
 	margin: 0;
 	font-family: 'Bebas Neue', cursive;
 }
-
 h1 { font-size: 5rem; }
 p { font-size: 1.8rem; }
-
-img {
- 	max-width: 100%;
-}
+img { max-width: 100%; }
 
 .flex-wrapper {
 	display: flex;
@@ -39,17 +31,16 @@ img {
 
 .hero {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	height: 100%;
 }
+.hero--center {
+	justify-content: center;
+}
 
 
-.hero__left,
-.hero__right {
-    max-width: 42%;
- }
-
+.hero__left, .hero__right { max-width: 42%; }
 .hero__left { margin-bottom: 40px; }
 .hero__right {
 	display: flex;
@@ -58,7 +49,6 @@ img {
 	justify-content: center;
 }
 
-
 .staytuned {
 	min-height: 100vh;
 	padding: 5rem 0;
@@ -66,7 +56,6 @@ img {
       rgba(0, 0, 0, 0.3),
       rgba(0, 0, 0, 0.3)
     ), url("/bg_hero_desktop.png");
-
 	/* Center and scale the image nicely */
 	background-position: center bottom;
 	background-repeat: no-repeat;
@@ -98,10 +87,8 @@ img {
 	padding: 2rem 1rem;
 	margin: 20px 0;
 }
-#countdown > #countdown__days,
-#countdown > #countdown__hours,
-#countdown > #countdown__minutes,
-#countdown > #countdown__seconds {
+#countdown__days, #countdown__hours,
+#countdown__minutes, #countdown__seconds {
 	font-size: 6rem;
 }
 
@@ -112,26 +99,14 @@ img {
 }
 
 @media (max-width: 992px) {
-	.flex-wrapper {
-		display: flex;
-		flex-direction: column;
-		/* justify-content: flex-start; */
-	}
-
-	/* .hero {
-		flex-direction: column;
-	} */
-
 	.hero__left  { max-width: 42%; }
 	.hero__right { max-width: 60%; }
 	.staytuned .logo { max-width: 90%; }
 	.staytuned {
-		min-height: 100vh;
-		padding: 5rem 0;
 		background: linear-gradient(
 		rgba(0, 0, 0, 0.3),
 		rgba(0, 0, 0, 0.3)
-		), url("/bg_hero_desktop.png");
+		), url("/bg_hero_tablet.png");
 
 		/* Center and scale the image nicely */
 		background-position: center bottom;
@@ -141,10 +116,8 @@ img {
 	}
 	h1 { font-size: 5rem; }
 	#countdown { font-size: 2.5rem; }
-	#countdown > #countdown__days,
-	#countdown > #countdown__hours,
-	#countdown > #countdown__minutes,
-	#countdown > #countdown__seconds {
+	#countdown__days, #countdown__hours,
+	#countdown__minutes, #countdown__seconds {
 		font-size: 4rem;
 	}
 }
