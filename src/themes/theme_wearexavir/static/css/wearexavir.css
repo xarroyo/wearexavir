@@ -134,6 +134,11 @@ section > h3.title {
 	font-size: 6rem;
 }
 
+.list__link {
+	color: black;
+	text-decoration: underline;
+}
+
 
 @media (max-width: 1200px) {
 	.hero__left { max-width: 50%; }
